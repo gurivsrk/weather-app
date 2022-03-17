@@ -12,14 +12,13 @@ weatherForm.addEventListener('submit',(e) => {
     const data = formData.value
     fetch('/weather?address='+data).then((response) => {
         response.json().then((data) => {
-            console.log(data)
+            //console.log(data)
            if(data.error){
             pOne.textContent = data.error 
            }
            else{
-               console.log(data)
-            pOne.textContent = data.location
-            pTwo.textContent = data.forecast
+            pOne.innerHTML = data.location
+            pTwo.innerHTML = data.forecast
            }
         })
     })
