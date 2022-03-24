@@ -11,6 +11,8 @@ connect('mongodb://127.0.0.1:27017/task-manager-api')
             },
             email:{
                 type: String,
+                trim: true,
+                lowercase:true,
                 required: true,
                 validate(value){
                     if(!isEmail(value)){
@@ -20,6 +22,7 @@ connect('mongodb://127.0.0.1:27017/task-manager-api')
             },
             age:{
                 type: Number,
+                default:0,
                 validate(value){
                     if(value < 0){
                         throw new Error('Age Must be a positive number')
