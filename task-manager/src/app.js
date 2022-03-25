@@ -1,24 +1,34 @@
-const {user,task} =require('./db/mongoose.js')
+const {user,tasks} =require('./db/mongoose.js')
+const {isEmail,contains} = require('validator')
 
-const me = new user({
-    name: 'jason',
-    email: 'jason@domain.com',
-    age: 30
-})
+    // const me = new user({
+    //     name: ' sharry            ',
+    //     email: 'sharry@domain.com',
+    //     password: 'sharry@123',
+    //     age: '33'
+    // })
 
-me.save().then(()=>{
-    console.log('success: '+me)
-}).catch((error)=>{
-    console.log('error: '+error)
-})
+    // me.save().then(()=>{
+    //     console.log('success: '+me)
+    // }).catch((error)=>{
+    //     console.log('error: '+error)
+    // })
 
-// const task = new tasks({
-//     description: 'Learn the Mongoose Library',
-//     completed: false
-// })
+    const task = new tasks({
+        description: 'breakfast',
+        completed: true
+    })
 
-// task.save().then(()=>{
-//     console.log('success: '+task)
-// }).catch((error)=>{
-//     console.log('error: '+error)
-// })
+    task.save().then(()=>{
+        console.log('success: '+task)
+    }).catch((error)=>{
+        console.log('error: '+error)
+    })
+
+
+
+    //delete 
+
+    // user.deleteMany().then((result)=>{
+    //     console.log(result)
+    // }).catch((error)=>{ console.log(error)})
